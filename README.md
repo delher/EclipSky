@@ -8,11 +8,11 @@ Storms often pop up quickly in August, so an ideal spot for viewing the eclipse 
 EclipSky integrates Google's Map API with Aeris Weather to show current viewing conditions and the path of the eclipse, so that a user may identify the nearest weather stations reporting good viewing conditions, i.e., sunny or partly sunny conditions.
 
 ## Installation
-EclipSky is a single web page that can be loaded in any current browser. It has been tested in Mozilla Firefox, Google Chrome and Apple Safari (desktop and iOS versions)
+EclipSky is a single web page that can be loaded in any current browser. It has been tested in Mozilla Firefox, Google Chrome and Apple Safari (desktop and iOS emulation)
 
 ## Usage
 ### Station Markers
-The default map shows the entire USA and the path from which the total eclipse could have been viewed. Initially, icons showing current conditions reported by the ten weather stations in the most populated areas are shown.
+The default map shows the entire USA and the path from which the total eclipse could have been viewed. Initially, icons showing current conditions reported by the ten weather stations in a variety of densely populated areas are shown.
 
 Clicking on the map will show the conditions at the five weather stations nearest the click.
 
