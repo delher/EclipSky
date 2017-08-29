@@ -1,0 +1,49 @@
+html,body {
+    font-family: Arial, sans-serif;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+table th {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+table td {
+    padding: 15,15,0,0px;
+}
+
+#map {
+    height: 400px;
+    margin: 10px;
+}
+
+p.networkError {
+    height: 50px;
+    padding: 30px;
+    margin: auto;
+    color: red;
+    text-align:center;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 2em;
+}
+.div_filter {
+    padding-top: 15px;
+}
+.highlight {
+    background-color: #f2eccf;
+    font-weight: bold;
+}
+
+.city {
+    text-transform: capitalize;
+}
+
+.state {
+    text-align: center;
+    text-transform: uppercase;
+}
+
