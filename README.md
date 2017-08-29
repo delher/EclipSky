@@ -14,7 +14,7 @@ EclipSky is a single web page that can be loaded in any current browser. It has 
 The zip file includes the html file and folders with Javascript, CSS and image files. Unzip the file to create a main folder with subfolders. The main folder will be named "EclipSky-master." In it, you should see "js," "css," and "weatherIcon" folders.
 
 ### 2. Open the Page:
-Using a browser, open the file "eclipsky-index.html" in the "EclipSky-master" folder.
+On a device with Internet access, use a current version of a browser with JavaScript enabled to open the file "eclipsky-index.html" in the "EclipSky-master" folder.
 
 ## Using the App
 ### Station Markers
@@ -27,6 +27,11 @@ Moving the mouse over or tapping/clicking on a weather station marker will revea
 The reports can be filtered using the selector under the map to limit the reports to sunny, mostly sunny or better, etc.
 
 ## Credits
-Google Map API
-Aeris Weather API
 NASA eclipse polylines (NASA in turn attributes these and other calculation scripts on their eclipse page to [Xavier Jubier].(http://xjubier.free.fr)
+
+## Dependencies
+JavaScript
+JQuery
+KnockoutJS
+Google Maps API
+Aeris Maps API
