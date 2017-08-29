@@ -22,9 +22,9 @@ The default map shows the entire USA and the path from which the total eclipse c
 
 Clicking on the map will show the conditions at the five weather stations nearest the click.
 
-Clicking on the weather station marker will reveal the station's ID and the time since the condition report was generated.
+Moving the mouse over or tapping/clicking on a weather station marker will reveal the station's ID and the time since the condition report was generated.
 
-The reports can be filtered using the selector to limit the reports to sunny, mostly sunny or better, etc.
+The reports can be filtered using the selector under the map to limit the reports to sunny, mostly sunny or better, etc.
 
 ## Credits
 Google Map API
