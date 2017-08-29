@@ -30,8 +30,9 @@ The reports can be filtered using the selector under the map to limit the report
 NASA eclipse polylines (NASA in turn attributes these and other calculation scripts on their eclipse page to [Xavier Jubier].(http://xjubier.free.fr)
 
 ## Dependencies
-JavaScript
-JQuery
-KnockoutJS
-Google Maps API
-Aeris Maps API
+* functioning Internet connection
+* JavaScript
+* JQuery
+* KnockoutJS
+* Google Maps API
+* Aeris Maps API
