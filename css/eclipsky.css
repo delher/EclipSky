@@ -5,10 +5,14 @@ html,body {
     padding: 0;
 }
 
-table th {
-    padding-left: 20px;
-    padding-right: 20px;
+th {
+    padding-right:20px;
 }
+
+th + th {
+    padding-left: 20px;
+}
+
 table td {
     padding: 15,15,0,0px;
 }
@@ -25,14 +29,21 @@ p.networkError {
     color: red;
     text-align:center;
 }
+.subtitle {
+    color:#aaa;
+    text-align: right;
+    vertical-align: bottom;
+}
 
 .title {
     font-weight: bold;
     font-size: 2em;
 }
+
 .div_filter {
     padding-top: 15px;
 }
+
 .highlight {
     background-color: #f2eccf;
     font-weight: bold;
