@@ -314,7 +314,7 @@ function createMarkersForStations() {
                 // on click, reset all markers before setting the clicked one to a larger icon
                 resetMarkerIcons();
                 this.setIcon(highlightedIcon);
-                populateInfoWindow(this, infoWindow);
+                populateInfoWindow(this, infoWindow, station.name(), station.state(), station.report());
                 ko.utils.arrayForEach(viewModel.stations(), function(station) {
                     if (station.id() == marker.id) {
                         station.highlight(true);
@@ -407,7 +407,7 @@ function filterList(newValue) {
 
 } // end of filterList function
 
-function populateInfoWindow(marker, infoWindow) {
+function populateInfoWindow(marker, infoWindow, name, state, report) {
     if (infoWindow.marker != marker) {
         infoWindow.setContent("");
         infoWindow.marker = marker;
@@ -416,7 +416,12 @@ function populateInfoWindow(marker, infoWindow) {
         });
     }
     var ageOfReport = Math.round((Date.now() - marker.time * 1000) / 60000);
-    infoWindow.setContent("<div> Station ID: " + marker.id + "<br> Time since report: " + ageOfReport + " minutes</div>");
+    state = state.toUpperCase();
+    name = name.toUpperCase();
+    let contentString1 = "<div> Station ID: " + marker.id + "<br> Time since report: " + ageOfReport + " minutes";
+    let contentString2 = "<br>" + name + ", " + state + "<br>" + report +"</div>";
+    contentString1 += contentString2;
+    infoWindow.setContent(contentString1);
     infoWindow.open(map, marker);
     infoWindow.addListener("closeclick", function() {
         infoWindow.marker = null;
@@ -451,6 +456,7 @@ function stationSelect(station) {
 }
 
 function animateStation(station) {
+    resetMarkerIcons();
     markers.forEach(function(marker) {
         if (station.id() == marker.id) {
             marker.setAnimation(google.maps.Animation.BOUNCE);
