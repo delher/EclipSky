@@ -455,7 +455,7 @@ function animateStation(station) {
         if (station.id() == marker.id) {
             marker.setAnimation(google.maps.Animation.BOUNCE);
             setTimeout(function() {
-                marker.setAnimation(null)
+                marker.setAnimation(null);
             }, 3000);
         } else {
             marker.setAnimation(google.maps.Animation.NONE);
