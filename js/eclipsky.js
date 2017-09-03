@@ -1,6 +1,7 @@
 var viewModel;
 var markers = []; // the array of markers displayed on the map
 var map;
+var infoWindow;
 
 function ViewModel() {
 
@@ -270,6 +271,10 @@ function initMap() {
     eclipsePathN.setMap(map);
     eclipsePathS.setMap(map);
     eclipsePathCenter.setMap(map);
+
+    infoWindow = new google.maps.InfoWindow({
+        content: ""
+    });
 } // end of init map function
 
 
@@ -307,14 +312,14 @@ function createMarkersForStations() {
                 icon: weatherIcon,
                 defaultIcon: weatherIcon
             });
-            infoWindow = new google.maps.InfoWindow();
+
 
             // show the info window on click:
             marker.addListener("click", function() {
                 // on click, reset all markers before setting the clicked one to a larger icon
                 resetMarkerIcons();
                 this.setIcon(highlightedIcon);
-                populateInfoWindow(this, infoWindow, station.name(), station.state(), station.report());
+                populateInfoWindow(infoWindow, this);
                 ko.utils.arrayForEach(viewModel.stations(), function(station) {
                     if (station.id() == marker.id) {
                         station.highlight(true);
@@ -407,7 +412,7 @@ function filterList(newValue) {
 
 } // end of filterList function
 
-function populateInfoWindow(marker, infoWindow, name, state, report) {
+function populateInfoWindow(infoWindow, marker) {
     if (infoWindow.marker != marker) {
         infoWindow.setContent("");
         infoWindow.marker = marker;
@@ -416,12 +421,8 @@ function populateInfoWindow(marker, infoWindow, name, state, report) {
         });
     }
     var ageOfReport = Math.round((Date.now() - marker.time * 1000) / 60000);
-    state = state.toUpperCase();
-    name = name.toUpperCase();
-    let contentString1 = "<div> Station ID: " + marker.id + "<br> Time since report: " + ageOfReport + " minutes";
-    let contentString2 = "<br>" + name + ", " + state + "<br>" + report +"</div>";
-    contentString1 += contentString2;
-    infoWindow.setContent(contentString1);
+    let contentString = "<div> Station ID: " + marker.id + "<br> Time since report: " + ageOfReport + " minutes";
+    infoWindow.setContent(contentString);
     infoWindow.open(map, marker);
     infoWindow.addListener("closeclick", function() {
         infoWindow.marker = null;
@@ -460,9 +461,12 @@ function animateStation(station) {
     markers.forEach(function(marker) {
         if (station.id() == marker.id) {
             marker.setAnimation(google.maps.Animation.BOUNCE);
+            populateInfoWindow(infoWindow, marker);
+            infoWindow.open(map, marker);
             setTimeout(function() {
                 marker.setAnimation(null);
             }, 3000);
+            infoWindow.open(map, marker);
         } else {
             marker.setAnimation(google.maps.Animation.NONE);
         }
